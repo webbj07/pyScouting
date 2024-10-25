@@ -1,15 +1,13 @@
+import config.UiSettings as UiSettings
 class UiElement:
     data = 0
-    name = ""
-    id = 0
-    def __init__(self, name, numericalStartingData, id) -> None:
-        self.name = name
+    settings: UiSettings.UiSettings = None
+    def __init__(self, settings:UiSettings.UiSettings, numericalStartingData) -> None:
+        self.settings = settings
         self.data = numericalStartingData
-        self.id = id
     def getData(self): return self.data
-    def getId(self): return self.id
-    def getName(self): return self.data
-
     def setData(self, data) -> None: self.data = data
-    def setname(self, name) -> None: self.name = name
-    def setId(self, id) -> None: self.id = id
+    def setSettings(self, settings:UiSettings.UiSettings):
+        self.settings =settings
+    def getSettings(self) -> UiSettings.UiSettings:
+        return self.settings
